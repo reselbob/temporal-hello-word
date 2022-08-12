@@ -17,7 +17,7 @@ export async function greet(name: string): Promise<string> {
   })
   console.log(`Got a joke at URL, ${response.data.setup} ${response.data.delivery} at ${Date.now()}`);
   const joke = `${response.data.setup} ${response.data.delivery} `
-  return `Greetings, ${name}! Here is a joke for you: ${joke}.`;
+  return `Greetings, ${name}! Here is a joke for you: ${joke}`;
 }
 // @@@SNIPEND
 
