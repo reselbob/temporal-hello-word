@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// @@@SNIPSTART typescript-hello-activity
 export async function greet(name: string): Promise<string> {
   const url = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart'
   const config = {
@@ -19,6 +18,5 @@ export async function greet(name: string): Promise<string> {
   const joke = `${response.data.setup} ${response.data.delivery} `
   return `Greetings, ${name}! Here is a joke for you: ${joke}`;
 }
-// @@@SNIPEND
 
 

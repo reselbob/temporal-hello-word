@@ -1,4 +1,3 @@
-// @@@SNIPSTART typescript-hello-client
 import { Connection, WorkflowClient } from '@temporalio/client';
 import { example } from './workflows';
 import { nanoid } from 'nanoid';
@@ -17,19 +16,17 @@ async function run() {
   });
 
   const handle = await client.start(example, {
-    args: ['Willard B. Wanamaker'], // type inference works! args: [name: string]
+    args: ['Willard B. Wanamaker'], // pass the declared name into the workflow
     taskQueue: 'hello-world',
     // in practice, use a meaningful business id, eg customerId or transactionId
     workflowId: 'workflow-' + nanoid(),
   });
   console.log(`Started workflow ${handle.workflowId}`);
 
-  // optional: wait for client result
-  console.log(await handle.result()); // Hello, Temporal!
+  console.log(await handle.result());
 }
 
 run().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-// @@@SNIPEND
