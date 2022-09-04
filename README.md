@@ -6,7 +6,7 @@ This is the default project that is scaffolded out when you run `npx @temporalio
 
 #### Setting the optional environment variables
 
-You can adjust the user name and URL from where joke are retrieved by configuring a set of optional environment variables using either a Bash `export` statement or by configuring a `.env` file in the root of this demonstration project's working directory.
+You can adjust the user name and URL from where a joke is retrieved by configuring a set of optional environment variables using either a Bash `export` statement or by configuring a `.env` file in the root of this demonstration project's working directory.
 
 The environment variables are:
 
