@@ -1,5 +1,5 @@
 # Hello World with Joke
-This project demonstrates how to create a simple Hello World-ish project that will return a greeting according to a declared user name. The project also makes an HTTP call within its only Temporal Activity to an external service that provides a joke on demand.
+This project demonstrates how to create a simple Hello World-ish project that will return a greeting according to a declared user name. The project also makes an HTTP call within its Activity to an external service that provides a joke on demand.
 
 There is a default user named `Willard B. Wanamaker` declared. There is also a default Joke URL configured within the code. This URL returns joke on demand.
 
