@@ -7,7 +7,7 @@ This is the default project that is scaffolded out when you run `npx @temporalio
 1. Make sure Temporal Server is running locally (see the [quick install guide](https://docs.temporal.io/server/quick-install/)).
 1. `npm install` to install dependencies.
 1. `npm run start.watch` to start the Worker.
-1. In another shell, `npm run workflow` to run the Workflow using the Temporal.io Client.
+1. In another shell, `npm run workflow-from-client` to run the Workflow using the Temporal.io Client.
 
 The Workflow will return output similar to the following: 
 

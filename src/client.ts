@@ -1,19 +1,20 @@
 import { Connection, WorkflowClient } from '@temporalio/client';
 import { example } from './workflows';
 import { nanoid } from 'nanoid';
+import path from "path";
+require('dotenv').config({ path: path.join(__dirname, '../', '.env') })
 
 async function run() {
   //Connect to localhost with default ConnectionOptions.
-  const connection = await Connection.connect({
-
-  });
+  const connection = await Connection.connect({});
 
   const client = new WorkflowClient({
     connection,
   });
-
+  const jokeUrl = process.env.JOKE_URL || 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart'
+  const name = process.env.USER_NAME || 'Willard B. Wanamaker'
   const handle = await client.start(example, {
-    args: ['Willard B. Wanamaker'], // pass the declared name into the workflow
+    args: [jokeUrl, name], // pass the declared URL and name into the workflow
     taskQueue: 'hello-world-with-joke',
     // create a workflowId to make the workflow identifiable within the Temporal
     // server
