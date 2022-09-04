@@ -1,10 +1,13 @@
 import axios from 'axios';
+import {ApplicationFailure} from "@temporalio/workflow";
 
-export async function greet(name: string): Promise<string> {
-  //Hard code the URL to the external Joke API because the parsing logic
-  //executed by the response need to accommodate the particular structure
-  //of the JSON returned from the Joke API.
-  const url = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart'
+/**
+ *
+ * @param jokeUrl, the URL of the service that delivers the joke
+ * @param name, the user name to greet alone with the joke
+ */
+export async function greetWithJoke(jokeUrl: string, name: string): Promise<string> {
+  const url = jokeUrl;
   const config = {
     headers: {
       'content-type': 'application/json',
@@ -18,6 +21,10 @@ export async function greet(name: string): Promise<string> {
     method: 'get',
     headers: config.headers
   })
+  if(response.status >= 300){
+    console.error(`Cannot get joke at url ${url}`)
+    throw ApplicationFailure.retryable (`Cannot get joke at url ${url}`);
+  }
   console.log(`Got a joke at URL, ${response.data.setup} ${response.data.delivery} at ${Date.now()}`);
   //Convert the data in the JSON object into a single string
   const joke = `${response.data.setup} ${response.data.delivery} `
