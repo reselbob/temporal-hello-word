@@ -9,7 +9,7 @@ const { greetWithJoke } = wf.proxyActivities<typeof activities>({
   startToCloseTimeout: '4 seconds',
   retry: {
     backoffCoefficient: 1,
-    maximumAttempts: 10, //The number of time to retry
+    maximumAttempts: 10, //The number of times to retry
   }
 });
 
