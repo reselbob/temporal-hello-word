@@ -21,6 +21,8 @@ export async function greetWithJoke(jokeUrl: string, name: string): Promise<stri
     method: 'get',
     headers: config.headers
   })
+
+  // If a non-success status code is returned, through an application failure error
   if(response.status >= 300){
     console.error(`Cannot get joke at url ${url}`)
     throw ApplicationFailure.retryable (`Cannot get joke at url ${url}`);

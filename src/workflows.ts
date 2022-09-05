@@ -2,18 +2,18 @@ import * as wf from '@temporalio/workflow';
 // Only import the activity types
 import type * as activities from './activities';
 
-// Get the greet activity function in order to make it
+// Get the greetWithJoke activity function in order to make it
 // available to the workflow
 const { greetWithJoke } = wf.proxyActivities<typeof activities>({
-  startToCloseTimeout: '30 seconds',
+  startToCloseTimeout: '4 seconds', //the timeout period for task execution
   retry: {
     backoffCoefficient: 1,
-    maximumAttempts: 10,
+    maximumAttempts: 10, //The number of time to retry
   }
 });
 
-// The workflow function that runs the activity, greet
-// once and returns the string created by the greet function
+// The workflow function that runs the activity, greetWithJoke
+// once and returns the string created by the greetWithJoke function
 export async function example(jokeUrl: string,name: string): Promise<string> {
   return await greetWithJoke(jokeUrl,name);
 }
