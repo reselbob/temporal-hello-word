@@ -5,7 +5,18 @@ There is a default user named `Willard B. Wanamaker` declared. There is also a d
 
 The purpose of this project is to demonstrate how to setup a Temporal Activity, Workflow, Worker and calling Temporal calling Client. Also, the [Worfklow](https://github.com/reselbob/temporal-hello-world-with-joke/blob/main/src/workflows.ts) in the code is configured so that the Activity will be retried 10 times in the case of a failing call to the external HTTP site. 
 
-## Running this sample
+## Testing the demonstration code:
+
+Execute the following instructions in a terminal window from the root of the demonstration project's working directory.
+
+1. Execute `npm install` to install the dependencies.
+2. Execute `npm test`
+
+During the test run you will see a good deal of screen output. At the end of the testing you will see the following output:
+
+`2 passing (3s)`
+
+## Running the demonstration project
 
 ### Setting the optional environment variables
 
