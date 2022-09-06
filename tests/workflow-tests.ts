@@ -1,4 +1,3 @@
-import {MockActivityEnvironment} from '@temporalio/testing';
 import {TestWorkflowEnvironment} from '@temporalio/testing';
 import {Worker} from '@temporalio/worker';
 import {Context} from '@temporalio/activity';
@@ -18,7 +17,7 @@ describe('Hello World with Joke Workflow Tests', () => {
         testEnv = await TestWorkflowEnvironment.create();
     });
 
-    before(async () => {
+    after(async () => {
         await testEnv?.teardown();
     });
 
