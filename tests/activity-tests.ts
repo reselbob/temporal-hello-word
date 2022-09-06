@@ -4,7 +4,6 @@ import {expect} from 'chai';
 import {before, describe, it} from 'mocha';
 import * as activities from '../src/activities';
 import { faker } from '@faker-js/faker';
-import path from "path";
 
 
 describe('Hello World with Joke Activity Tests', () => {
@@ -18,6 +17,7 @@ describe('Hello World with Joke Activity Tests', () => {
         const jokeUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart';
         const result = await activities.greetWithJoke(jokeUrl, name);
         const env = new MockActivityEnvironment({ attempt: 2 });
+        console.log(result);
         expect(result).to.an('string');
         expect(result.includes(name)).to.eq(true);
     });

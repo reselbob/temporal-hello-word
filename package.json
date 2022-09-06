@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "ts-node src/worker.ts",
     "start.watch": "nodemon src/worker.ts",
-    "workflow-from-client": "ts-node src/client.ts"
+    "workflow-from-client": "ts-node src/client.ts",
+    "test": "mocha --require ts-node/register tests/**/*.ts"
   },
   "nodemonConfig": {
     "execMap": {

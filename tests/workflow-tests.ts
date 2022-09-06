@@ -43,5 +43,6 @@ describe('Hello World with Joke Workflow Tests', () => {
         );
         expect(result).to.an('string');
         expect(result.includes(name)).to.eq(true);
+        console.log(result)
     });
 })
