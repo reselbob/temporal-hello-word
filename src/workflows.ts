@@ -20,7 +20,7 @@ const { greetWithJoke } = wf.proxyActivities<typeof activities>({
 export async function example(jokeUrl: string,name: string): Promise<string> {
   return await greetWithJoke(jokeUrl,name)
       .catch(e => {
-        // Trap the activity failure and delivery a default name with a very bad joke
+        // Trap the activity failure and delivery a default name with a humorous message
         if(e instanceof wf.ActivityFailure){
           return `No joke for you ${name}. The call is failing and it's no joke!`
         }else{
